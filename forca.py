@@ -29,3 +29,14 @@ while True:
 
     #Adicionamos a letra a letra de letras digitadas 
     letras_adivinhadas.append(letra)
+
+    #Verificamos se a letra digitada está na palavra sorteada
+    if letra in palavras_sorteada:
+        lista = []
+        for indice in range(len(palavras_sorteada)):
+            if letra == palavras_sorteada[indice]:
+                lista.append(letra)
+            else:
+                lista.append(palavra_oculta[indice])
+        palavra_oculta = ''.join(lista)
+        
