@@ -8,8 +8,7 @@ palavras_sorteada = random.choice(palavras)
 print(palavras_sorteada)
 
 #Criamos uma string com traços para representar as letras 
-palavra_oculta = "||" * len(palavras_sorteada)
-print(palavra_oculta)
+palavra_oculta = "**" * len(palavras_sorteada)
 
 #Criamos uma lista para armazenar as letras que ja foram falads
 letras_adivinhadas = []
@@ -39,4 +38,15 @@ while True:
             else:
                 lista.append(palavra_oculta[indice])
         palavra_oculta = ''.join(lista)
+    else:
+        max_tentativas -= 1 
+        print(f'Letra não encontrada. Você tem {max_tentativas} tentativas restantes. ')
+
+    #Verificamos se o jogador ganhou ou perdeu
+    if palavra_oculta == palavras_sorteada:
+        print(f'Parabéns! Você ganhou! A palavra era {palavras_sorteada}.')
+        break
+    elif max_tentativas == 0:
+        print(f'Você perdeu! A palavra era {palavras_sorteada}.')
+        break
         
